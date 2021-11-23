@@ -28,5 +28,14 @@ namespace MongoDB.ConsoleExample_1
 
         [BsonElement("Brand")]
         public string Brand { get; set; }
+
+        public SupplementSubClass SupplementSubClass { get; set; }
+
+        public List<SupplementSubClass> Collection { get; set; }
+    }
+
+    public class SupplementSubClass
+    {
+        public string Name { get; set; }
     }
 }

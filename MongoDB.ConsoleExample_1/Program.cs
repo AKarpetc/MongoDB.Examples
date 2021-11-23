@@ -14,7 +14,14 @@ namespace MongoDB.ConsoleExample_1
 
             var _supplement = database.GetCollection<Supplement>("Supplements");
 
-            _supplement.InsertOne(new Supplement { SupplementName = "Тестовое имя" });
+            _supplement.InsertOne(new Supplement
+            {
+                SupplementName = "Тестовое имя",
+                SupplementSubClass = new SupplementSubClass { Name = "Тестовый подкласс" },
+                Collection = new System.Collections.Generic.List<SupplementSubClass> 
+                { new SupplementSubClass { Name = "Тестовая коллекция" },
+                  new SupplementSubClass { Name = "Тестовая коллекция" }}
+            });
 
             var suppliment = await _supplement.Find(x => true).ToListAsync();
 
